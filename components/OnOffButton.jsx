@@ -6,7 +6,7 @@ import Button from '@/components/Button'
 export default function DischargedButton({...others}){
     return (
         <ol className='flex items-center'>
-            {ON_OFF_BUTTON.map(item => <Button className='px-5'>{item}</Button>)}       
+            {ON_OFF_BUTTON.map(item => <Button className='px-5 text-white'>{item}</Button>)}       
         </ol>
     )
 }

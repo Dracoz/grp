@@ -6,7 +6,7 @@ import Button from '@/components/Button'
 export default function HeatDetButton({...others}){
     return (
         <ol>
-            {HEAT_DET_BUTTON.map(item => <Button className={`${styles.pressButton}`}>{item}</Button>)}       
+            {HEAT_DET_BUTTON.map(item => <Button className={`${styles.pressButton} bg-sky-500 hover:bg-sky-700`}>{item}</Button>)}       
         </ol>
     )
 }

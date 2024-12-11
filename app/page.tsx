@@ -48,22 +48,22 @@ export default function Home(){
         </section>
 
         <section className= {`${styles.thirdContainer} flex items-center justify-around`}>
-          <div className='self-start text-white'>
-            <p className='flex justify-center items-center'>DISCHARGE</p>
+          <div className='self-start'>
+            <p className='flex justify-center items-center text-white'>DISCHARGE</p>
             <DischargedIndicator />
             <DischargedButton />
           </div>
 
-          <div className='text-white'>
-            <p className='flex justify-center items-center'>SMOKE DET</p>
-            <p className='flex justify-center items-center'>ZONE 1A</p>
+          <div>
+            <p className='flex justify-center items-center text-white'>SMOKE DET</p>
+            <p className='flex justify-center items-center text-white'>ZONE 1A</p>
             <SmokeDetIndicator />
             <SmokeDetButton />
           </div>
 
-          <div className='text-white'>
-            <p className='flex justify-center items-center'>HEAT DET</p>
-            <p className='flex justify-center items-center'>ZONE 1B</p>
+          <div>
+            <p className='flex justify-center items-center text-white'>HEAT DET</p>
+            <p className='flex justify-center items-center text-white'>ZONE 1B</p>
             <HeatDetIndicator />
             <HeatDetButton />
           </div>

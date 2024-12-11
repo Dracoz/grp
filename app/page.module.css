@@ -5,14 +5,14 @@
     margin: 2rem 1rem 0.5rem 1rem;
     max-width: 15rem;
     max-height: 100rem;
-    padding: 2rem;
+    padding: 1.8rem;
 }
 
 .secondContainer{
     background-color: #21253c;
     border-color: rgb(255 255 255);
     border-radius: 6px;
-    margin: 2rem auto;
+    margin: 2rem auto 1rem auto;
     max-width: 60rem;
     padding: 2rem;
 }
@@ -21,13 +21,13 @@
     background-color: #21253c;
     border-color: rgb(255 255 255);
     border-radius: 6px;
-    margin: 1rem auto;
+    margin: auto;
     max-width: 60rem;
     padding: 2rem;
 }
 
 .pressButton {
-    background-color: bisque;
+    /* background-color: rgb(255,152,0); */
     height: 2rem;
     width: 7rem;
     border: 1px solid #000;

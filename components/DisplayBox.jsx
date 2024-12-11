@@ -4,7 +4,7 @@ export default function DisplayBox({value, name}){
             <div className='bg-slate-500 px-2 py-2 w-40 flex justify-center'>
                 <p className="text-5xl">{value}</p>
             </div>
-            <p>{name}</p>  
+            <p className="text-white">{name}</p>  
         </div>
     );
 }
