@@ -27,10 +27,10 @@
 }
 
 .pressButton {
-    /* background-color: rgb(255,152,0); */
+
     height: 2rem;
     width: 7rem;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     font-size: small;
     margin: 0.5rem;
 }
