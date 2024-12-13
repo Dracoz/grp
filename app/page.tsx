@@ -22,12 +22,12 @@ import HeatDetIndicator from '@/components/HeatDetIndicator';
 
 export default function Home(){
   const [btnStatus, setBtnStatus] = useState("OFF");
-  const [whichButton, setWhichButton] = useState();
-  const [whichHeatButton, setWhichHeatButton] = useState();
+  const [whichButton, setWhichButton] = useState("");
+  const [whichHeatButton, setWhichHeatButton] = useState("");
 
   function setToEmpty(){
-    setWhichButton(undefined);
-    setWhichHeatButton(undefined);
+    setWhichButton("");
+    setWhichHeatButton("");
   }
 
   return (
@@ -72,14 +72,14 @@ export default function Home(){
             <p className='flex justify-center items-center text-white text-xl'>SMOKE DET</p>
             <p className='flex justify-center items-center text-white text-sm pb-2 text-stone-300'>ZONE 1A</p>
             <SmokeDetIndicator buttonStatus={btnStatus} whichIndicator={whichButton}/>
-            <SmokeDetButton onClickButton={(whichBtn: any) => {setWhichButton(whichBtn)}} />
+            <SmokeDetButton onClickButton={(whichBtn: string) => {setWhichButton(whichBtn)}} />
           </div>
 
           <div>
             <p className='flex justify-center items-center text-white text-xl'>HEAT DET</p>
             <p className='flex justify-center items-center text-white text-sm pb-2 text-stone-300'>ZONE 1B</p>
             <HeatDetIndicator buttonStatus={btnStatus} whichIndicator={whichHeatButton}/>
-            <HeatDetButton onClickButton={(whichBtn: any) => {setWhichHeatButton(whichBtn)}} />
+            <HeatDetButton onClickButton={(whichBtn: string) => {setWhichHeatButton(whichBtn)}} />
           </div>
         </section>
       </div>
