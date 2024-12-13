@@ -6,7 +6,7 @@ import Button from '@/components/Button'
 export default function DischargedButton({...others}){
     return (
         <ol>
-            {DISCHARGE_BUTTON.map(item => <Button className={`${styles.pressButton} bg-sky-500 hover:bg-sky-700 text-zinc-200`}>{item}</Button>)}       
+            {DISCHARGE_BUTTON.map(item => <Button className={`${styles.pressButton} bg-orange-500 hover:bg-orange-700 text-stone-800`} key={item}>{item}</Button>)}       
         </ol>
     )
 }
