@@ -36,7 +36,7 @@ export default function Home(){
         <h1 className= {`${roboto.className} font-semibold p-3 flex items-center justify-center`}>Gas Releasing Control Panel</h1>
       </header>
 
-    <main className='gap-3'>
+    <main className='gap-3 flex flex-col md:flex-row'>
       <section className= {`${styles.displayContainer} flex flex-col items-center px-6`}>
         {/* <OnOffButton onClickButton={handleOnOffButton} /> */}
         <OnOffButton onClickButton = {(state: string) => setBtnStatus(state)} reset = {setToEmpty}/>
@@ -45,7 +45,7 @@ export default function Home(){
         <DisplayBox value={btnStatus === "OFF" ? 0 : 30} name={'DISCHARGED TIMER'}/>
       </section>
       <div>
-        <section className= {`${styles.secondContainer} flex item-center justify-around flex-row gap-5`}>
+        <section className= {`${styles.secondContainer} flex item-center justify-around flex-col md:flex-row gap-5`}>
           <div>
             <PowerIndicator buttonStatus={btnStatus}/>
           </div>
@@ -61,7 +61,7 @@ export default function Home(){
 
         </section>
 
-        <section className= {`${styles.thirdContainer} flex items-center justify-around mt-3`}>
+        <section className= {`${styles.thirdContainer} flex items-center justify-around mt-3 flex-col md:flex-row`}>
           <div className='self-start'>
             <p className='flex justify-center items-center text-white text-xl py-2'>DISCHARGE</p>
             <DischargedIndicator buttonStatus={btnStatus}/>
