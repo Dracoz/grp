@@ -6,6 +6,7 @@ import { roboto } from '@/app/fonts';
 import styles from '@/app/page.module.css';
 
 import DisplayBox from '@/components/DisplayBox';
+import DischargeDisplayBox from '@/components/DischargeDisplayBox'
 
 import OnOffButton from '@/components/OnOffButton';
 import MainButton from '@/components/MainButton';
@@ -36,54 +37,53 @@ export default function Home(){
         <h1 className= {`${roboto.className} font-semibold p-3 flex items-center justify-center`}>Gas Releasing Control Panel</h1>
       </header>
 
-    <main className='gap-3 flex flex-col md:flex-row'>
-      <section className= {`${styles.displayContainer} flex flex-col items-center px-6`}>
-        {/* <OnOffButton onClickButton={handleOnOffButton} /> */}
-        <OnOffButton onClickButton = {(state: string) => setBtnStatus(state)} reset = {setToEmpty}/>
-        <DisplayBox value={btnStatus === "OFF"? 0 : 28.1} name={'VOLTMETER'}/>
-        <DisplayBox value={btnStatus === "OFF" ? 0 : 0.08} name={'AMMETER'}/>
-        <DisplayBox value={btnStatus === "OFF" ? 0 : 30} name={'DISCHARGED TIMER'}/>
-      </section>
-      <div>
-        <section className= {`${styles.secondContainer} flex item-center justify-around flex-col md:flex-row gap-5`}>
+      <main className= {`${styles.displayContainer} md:mt-20 mt-5`}>
+        <section className='gap-x-6 flex flex-col md:flex-row items-start py-3 px-2'>
           <div>
+            <OnOffButton onClickButton = {(state: string) => setBtnStatus(state)} reset = {setToEmpty}/>
+            <DisplayBox value={btnStatus === "OFF"? 0 : 28.1} name={'VOLTMETER'}/>
+            <DisplayBox value={btnStatus === "OFF" ? 0 : 0.08} name={'AMMETER'}/>
+          </div>
+
+          <div className='flex flex-col'>
             <PowerIndicator buttonStatus={btnStatus}/>
-          </div>
-          <div>
-            <GeneralIndicator buttonStatus={btnStatus} />
-          </div>
-          <div>
-            <MainFailureIndicator buttonStatus={btnStatus} />
-          </div>
-          <div>
             <MainButton />
           </div>
+          <div className='flex flex-col'>
+            <div className='mb-6'>
+            <GeneralIndicator buttonStatus={btnStatus} />
+            </div>
+            <div>
+            <MainFailureIndicator buttonStatus={btnStatus} />
+            </div>
+          </div>
+
+          <div className='flex flex-col md:flex-row border-solid border-2 border-slate-400 rounded-md p-2 space-x-5'>
+            <div>
+              <p className='flex justify-center items-center text-white text-xl'>SMOKE DET</p>
+              <p className='flex justify-center items-center text-white text-sm pb-2 text-stone-400'>ZONE 1A</p>
+              <SmokeDetIndicator buttonStatus={btnStatus} whichIndicator={whichButton}/>
+              <SmokeDetButton onClickButton={(whichBtn: string) => {setWhichButton(whichBtn)}} />
+            </div>
+
+            <div>
+              <p className='flex justify-center items-center text-white text-xl'>HEAT DET</p>
+              <p className='flex justify-center items-center text-white text-sm pb-2 text-stone-400'>ZONE 1B</p>
+              <HeatDetIndicator buttonStatus={btnStatus} whichIndicator={whichHeatButton}/>
+              <HeatDetButton onClickButton={(whichBtn: string) => {setWhichHeatButton(whichBtn)}} />
+            </div>
+
+            <div className='self-start'>
+            <p className='text-white text-xl'>DISCHARGE TIMER</p>
+              <DischargeDisplayBox value={btnStatus === "OFF" ? 0 : 30}/>
+              <DischargedIndicator buttonStatus={btnStatus}/>
+              <DischargedButton />
+            </div>
+          </div>
 
         </section>
-
-        <section className= {`${styles.thirdContainer} flex items-center justify-around mt-3 flex-col md:flex-row`}>
-          <div className='self-start'>
-            <p className='flex justify-center items-center text-white text-xl py-2'>DISCHARGE</p>
-            <DischargedIndicator buttonStatus={btnStatus}/>
-            <DischargedButton />
-          </div>
-
-          <div>
-            <p className='flex justify-center items-center text-white text-xl'>SMOKE DET</p>
-            <p className='flex justify-center items-center text-white text-sm pb-2 text-stone-300'>ZONE 1A</p>
-            <SmokeDetIndicator buttonStatus={btnStatus} whichIndicator={whichButton}/>
-            <SmokeDetButton onClickButton={(whichBtn: string) => {setWhichButton(whichBtn)}} />
-          </div>
-
-          <div>
-            <p className='flex justify-center items-center text-white text-xl'>HEAT DET</p>
-            <p className='flex justify-center items-center text-white text-sm pb-2 text-stone-300'>ZONE 1B</p>
-            <HeatDetIndicator buttonStatus={btnStatus} whichIndicator={whichHeatButton}/>
-            <HeatDetButton onClickButton={(whichBtn: string) => {setWhichHeatButton(whichBtn)}} />
-          </div>
-        </section>
-      </div>
-    </main>
+      </main>
+      
     </>
   );
 }
