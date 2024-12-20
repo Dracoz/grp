@@ -6,7 +6,7 @@ import { roboto } from '@/app/fonts';
 import styles from '@/app/page.module.css';
 
 import DisplayBox from '@/components/DisplayBox';
-import DischargeDisplayBox from '@/components/DischargeDisplayBox'
+import DischargeDisplayBox from '@/components/DischargeDisplayBox';
 
 import OnOffButton from '@/components/OnOffButton';
 import MainButton from '@/components/MainButton';
